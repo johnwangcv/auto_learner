@@ -8,6 +8,8 @@
 # In[1]:
 
 
+print('loading spanish tokenizer')
+
 from transformers import AutoTokenizer
 
 tokenizer = AutoTokenizer.from_pretrained("skimai/spanberta-base-cased")

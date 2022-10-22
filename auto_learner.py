@@ -8,11 +8,20 @@ from flask import make_response
 from flask import session
 
 '''
-pip3 install torch
-pip3 install transformers
+
+sudo apt install -y python3
+sudo apt install -y python3-pip
+
+pip3 install torch --no-cache-dir
+pip3 install transformers --no-cache-dir
+
+pip3 install Flask
+
 '''
 
 from text_to_text_model import text_to_text_model
+
+print('building the text to text model')
 
 model = text_to_text_model()
 model.build_model()
@@ -73,7 +82,7 @@ def spanish_grammar_checker():
 			con.commit()
 
 			return render_template(
-				"spanish_grammar_checker.html",
+				"auto_learner.html",
 				corrected_text = corrected_text,
 				corrected_text_our = corrected_text_our,
 				input_text = input_text,
@@ -229,10 +238,13 @@ cd auto_learner
 
 nohup flask --app auto_learner --debug run --host=0.0.0.0 --port=3917 &
 
+18.212.54.96:3917/spanish_grammar_checker
+
+localhost:3917/spanish_grammar_checker
 
 
 
-flask --app auto_learner --debug run --port=6912 --host=0.0.0.0
+flask --app auto_learner --debug run --host=0.0.0.0 --port=3917
 
 # user the service 
 

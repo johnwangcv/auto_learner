@@ -1,1 +1,67 @@
+<!doctype html>
 
+<h1>Spanish Language Checker - Auto-Learner</h1>
+
+<form method="POST">
+	Input your text here:
+	<br><br>
+	<input 
+	name="input_text" 
+	id="input_text" 
+	value="Me gusta manzana"
+	size="80"
+	>
+	<br><br>
+	<button>grammar check</button>
+</form>
+<br>
+<b> input: </b> {{ input_text }}
+<br><br>
+
+<hr>
+
+<h2>Corrections</h2>
+<b> corrected by open-source: </b> {{ corrected_text }}
+<br><br>
+<b> suggestions: </b><br> {{ matches | safe }}
+<br><br>
+<b> corrected by our model: </b> {{ corrected_text_our }}
+<br>
+
+<br><br>
+<hr>
+
+<form method="POST">
+
+<h2>Supervised Learning</h2>
+
+	I want to give my own correction:
+	<br><br>
+	<input 
+		name="feedback_text" 
+		id="feedback_text" 
+		value="Me gusta la manzana"
+		size="80"
+	>
+	<br><br>
+	<button>submit</button>
+</form>
+
+<br><br>
+<hr>
+
+<form method="POST">
+
+<h2>Unsupervised Learning</h2>
+
+	I don't want to do any correction, but I have a good quliaty text for the model to learn:
+	<br><br>
+	<input 
+		name="good_quliaty_text" 
+		id="good_quliaty_text" 
+		value = "La guerra de Ucrania desestabiliza la economía mundial"
+		size="80"
+	>
+	<br><br>
+	<button>submit</button>
+</form>
